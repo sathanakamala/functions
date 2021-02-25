@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+
+int prime(int a)
+{
+    int i,isprime=1;
+    for(i=2;i<=a/2;++i)
+    {
+        if(a%i==0)
+        {
+            isprime=0;
+            break;
+        }
+    }
+    return isprime;
+}
+int main()
+{
+    int integer,i,flag=0;
+    cout<<"enter a positive integer:";
+    cin>>integer;
+    
+    for(i=2;i<=integer/2;++i)
+    {
+        if(prime(i)==1)
+        {
+            if(prime(integer-i)==1)
+            {
+                cout<<integer<<" can be expressed as the sum of:"<<i<<"and "<<integer-i<<endl;
+                flag=1;
+            }
+        }
+    }
+    if(flag==0)
+    cout<<integer<<"cannot be expressed as the sum of two prime numbers\n";
+    return 0;
+}
+
+
+output:
+enter a positive integer:34
+34 can be expressed as the sum of 3 and 31
+34 can be expressed as the sum of 5 and 29
+34 can be expressed as the sum of 11 and 23
+34 can be expressed as the sum of 17 and 17
+
+
+
+
+
+               
